@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet"  href="css/style.css">
+		<link rel="stylesheet"  media="screen and (max-width:599px)" href="css/mobile.css">
+		<link rel="stylesheet"  media="screen and (min-width:600px)" href="css/desktop.css">
+	</head>
+	<body>
+		<!-- The container is where all the html parts is -->
+		<div class="container">
+			<!-- mySidenav contains the list of locations and the filter to search through it -->
+			<div id="mySidenav" class="sidenav">
+				<!--This hamburger button closes the side nav and only appears in mobile view -->
+				<span style="cursor:pointer" id="closeNav" onclick="closeNav()">&#9776;</span>
+				<div class="options-box">
+					<h1>Find Your New NYC Home</h1>
+					<hr>
+					<div>
+						<input id="zoom-to-area-text" placeholder="Search…" type="search" name="q" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off"> 
+						<input id="zoom-to-area" type="button" onclick="closeNav()" value="Filter">
+					</div>
+					<hr>
+					<ul data-bind="template: {name:'place', foreach:placeList}"> 
+					</ul>
+				</div>
+			</div>
+			<!-- main contains the map -->
+			<div id="main">
+			<span style="font-size:30px; cursor:pointer" onclick="openNav()">&#9776;</span>
+				<div id="map"></div>
+			</div>
+		</div>
+		<!-- Js template to display the list of locations dinamically with data-bindings -->
+		<script type="text/html" id="place"> 
+			<li>
+				<strong data-bind="text: title, click: $parent.sendAlert"></strong>
+			</li>
+		</script> 
+		<script type="text/javascript" src='src/knockout-3.4.2.js'></script>
+		<script type="text/javascript" src="src/enquire.min.js"></script>
+		<script type="text/javascript" src="src/responsive.js"></script>
+		<script type="text/javascript" src="src/app.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	
+		<script async defer
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtiOSLoMs38TrRPKCGLgnIG9v8ywNxEZg&v=3&callback=initMap">
+		</script>
+	</body>
+</html>

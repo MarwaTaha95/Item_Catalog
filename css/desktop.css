@@ -1,0 +1,16 @@
+#zoom-to-area-text {
+	width: 94%;
+}
+
+#zoom-to-area {
+	width: 0%;
+}
+
+#map {
+	bottom:0px;
+	height: 100%;
+	left: 0px;
+	position: absolute;
+	right: 0px;
+	width:100%;
+}
