@@ -7,11 +7,11 @@
 >This project is a website that several locations on a google map and enable the user to interact with them.
 >The user can display the locations, search through them and find some wikipedia search results about the places.
 
-######Created by: Marwa Taha
+###### Created by: Marwa Taha
 
-######Version Number: 1.0.0
+###### Version Number: 1.0.0
 
-######Date: 12/01/2018
+###### Date: 12/01/2018
 ----
 ## SYSTEM REQUIREMENTS
 No particular requirments.
