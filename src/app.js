@@ -1,10 +1,10 @@
 var initialPlaces = [
-	{title: 'Park Ave Penthouse', location: {lat: 40.7713024, lng: -73.9632393}},
-	{title: 'Chelsea Loft', location: {lat: 40.7444883, lng: -73.9949465}},
-	{title: 'Union Square Open Floor Plan', location: {lat: 40.7347062, lng: -73.9895759}},
-	{title: 'East Village Hip Studio', location: {lat: 40.7281777, lng: -73.984377}},
-	{title: 'TriBeCa Artsy Bachelor Pad', location: {lat: 40.7195264, lng: -74.0089934}},
-	{title: 'Chinatown Homey Space', location: {lat: 40.7180628, lng: -73.9961237}}
+	{title: 'Central Park', location: {lat: 40.771133, lng: -73.974187}},
+	{title: 'Solomon R.Guggenheim Museum', location: {lat: 40.782980, lng: -73.958971}},
+	{title: 'Empire State Building', location: {lat: 40.748441, lng: -73.985664}},
+	{title: 'Park Avenue Armory', location: {lat: 40.767495, lng: -73.966100}},
+	{title: 'Washington Square Park', location: {lat: 40.730823, lng: -73.997332}},
+	{title: 'Whitney Museum of American Art', location: {lat: 40.739588, lng: -74.008863}}
 ];
 
 // Create a new blank array for all the listing markers.
@@ -58,6 +58,10 @@ var initMap = function() {
 	showListings();
 }
 
+function maperrorhandler(){
+	alert('error loading map');
+}
+
 // Create marker icons based on the color provided
 function makeMarkerIcon(markerColor) {
 	var markerImage = new google.maps.MarkerImage(
@@ -90,12 +94,12 @@ function populateInfoWindow(marker, infowindow) {
 			url: wikiUrl,
 			dataType: "jsonp",
 			success: function(response){
-				var name = response[0];
+				var name = response[2][0];
 				if(name){
-					infowindow.setContent('<div>&nbsp &nbsp Data provided from wikipedia:</div>'+'<div>&nbsp &nbsp Name: ' + name + '</div>');
+					infowindow.setContent('<div style="max-width:250px;"><div>&nbsp &nbsp Data provided from wikipedia:</div>'+'<div>&nbsp ' + name + '</div></div>');
 					infowindow.open(map, marker);
 				}else {
-					infowindow.setContent('<div>&nbsp &nbsp Error: cannot read the name from wikipedia!</div>');
+					infowindow.setContent('<div>&nbsp &nbsp Error: cannot read Data from wikipedia!</div>');
 					infowindow.open(map, marker);
 				}
 			},
@@ -103,7 +107,7 @@ function populateInfoWindow(marker, infowindow) {
 				if (jqXHR.status == 500) {
 					alert('Internal error: ' + jqXHR.responseText);
 				} else {
-					alert('Unexpected error.');
+					alert('Unexpected error. Cannot load data from wikipedia');
 				}
 			}
 		});

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<title>Neighborhood map</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet"  href="css/style.css">
 		<link rel="stylesheet"  media="screen and (max-width:599px)" href="css/mobile.css">
-		<link rel="stylesheet"  media="screen and (min-width:600px)" href="css/desktop.css">
+		<link rel="stylesheet"  media="screen and (min-width:600px) and (max-width:799px)" href="css/tablet.css">
+		<link rel="stylesheet"  media="screen and (min-width:800px)" href="css/desktop.css">
 	</head>
 	<body>
 		<!-- The container is where all the html parts is -->
@@ -38,14 +40,14 @@
 				<strong data-bind="text: title, click: $parent.sendAlert"></strong>
 			</li>
 		</script> 
-		<script type="text/javascript" src='src/knockout-3.4.2.js'></script>
-		<script type="text/javascript" src="src/enquire.min.js"></script>
-		<script type="text/javascript" src="src/responsive.js"></script>
-		<script type="text/javascript" src="src/app.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+		<script src='src/knockout-3.4.2.js'></script>
+		<script src="src/enquire.min.js"></script>
+		<script src="src/responsive.js"></script>
+		<script src="src/app.js"></script>
+		<script src="src/jquery-3.3.1.min.js"></script>
 	
 		<script async defer
-			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtiOSLoMs38TrRPKCGLgnIG9v8ywNxEZg&v=3&callback=initMap">
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtiOSLoMs38TrRPKCGLgnIG9v8ywNxEZg&v=3&callback=initMap" onerror="maperrorhandler()">
 		</script>
 	</body>
 </html>
